@@ -35,15 +35,15 @@ public class MenuPrincipal extends JFrame{
         JMenuBar barra=new JMenuBar();
         JMenu registrar=new JMenu("Registrar");
         
-        RegistroPersona rp=new RegistroPersona();
+       // RegistroPersona rp=new RegistroPersona();
         JMenuItem persona=new JMenuItem();
         persona.setText("Persona"); 
-        persona.addActionListener(rp);
+        persona.addActionListener(null);
         
-        RegistroInstitucion ri=new RegistroInstitucion();
+       // RegistroInstitucion ri=new RegistroInstitucion();
         JMenuItem institucion=new JMenuItem();
         institucion.setText("Institución");
-        institucion.addActionListener(ri);
+        institucion.addActionListener(null);
         
         registrar.add(persona);
         registrar.add(institucion);
