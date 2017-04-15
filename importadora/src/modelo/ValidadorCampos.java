@@ -21,15 +21,17 @@ public class ValidadorCampos {
         char c = evt.getKeyChar();
         if(c < '0' || c > '9') evt.consume();
     }
-    public void validarCorreo(String email){
+    public boolean validarCorreo(String email){
         Pattern pattern = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
                         + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
          Matcher mather = pattern.matcher(email);
  
         if (mather.find() == true) {
-            System.out.println("El email ingresado es válido.");
+            return true;
+//            System.out.println("El email ingresado es válido.");
         } else {
-            System.out.println("El email ingresado es inválido.");
+            return false;
+//            System.out.println("El email ingresado es inválido.");
         }
     }
 }
