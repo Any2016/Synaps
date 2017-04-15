@@ -8,6 +8,7 @@ import javax.swing.JButton;
 
 public class Utilidades {
     
+    //sirve para dar un tamaño a los botones, solo tienes que llamarlo a la funcion
     public JButton btn(String text, int x, int y){
         JButton b = new JButton(text);
         b.setBounds(x, y, 120, 32);
@@ -22,11 +23,11 @@ public class Utilidades {
         });
         return b;
     }
-    public void MouseEntered(MouseEvent e){
+    private void MouseEntered(MouseEvent e){
         ((JButton)e.getComponent()).setBackground(new Color(88,146,226));//210,210,210//109,109,109
     }
     
-    public void MouseExited(MouseEvent e) {
+    private void MouseExited(MouseEvent e) {
         ((JButton)e.getComponent()).setBackground(new Color(66,131,222));
     }
 }

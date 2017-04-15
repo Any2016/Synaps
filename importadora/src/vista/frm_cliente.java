@@ -86,7 +86,6 @@ public class frm_cliente extends JFrame {
     }
     
     private void ActionPerformed(String opc){
-//        JOptionPane.showMessageDialog(rootPane, opc);
         switch (opc) {
             case "btn_cancelar":
                 this.dispose();
