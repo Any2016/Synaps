@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
  * @author Andrea
  */
 public class ValidadorCampos {
-    public void validarNombres(java.awt.event.KeyEvent evt){//PAO TIENES QUE MODIFICAR E IMPLENTAR PARA LOS ESPACIOS
+    public void validarNombres(java.awt.event.KeyEvent evt){
         char c = evt.getKeyChar();
         if((c < 'a' || c > 'z') && ( c < 'A' || c > 'Z') && c=='\n')evt.consume();
     }
