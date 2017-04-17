@@ -52,6 +52,21 @@ public class MenuPrincipal extends JFrame{
             }
         });
         this.add(btn_cliente);
+        
+        JButton btn_proveedores = util.btn("Registro de Proveedores", 50, 50);
+        btn_proveedores.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new RegistroProveedores().setVisible(true);
+            }
+        });
+        this.add(btn_proveedores);
+        
+        
+        
+        
+        
+        
     }
     
 }
