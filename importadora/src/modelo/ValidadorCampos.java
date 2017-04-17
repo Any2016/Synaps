@@ -15,7 +15,7 @@ import javax.swing.JTextField;
  * @author Andrea
  */
 public class ValidadorCampos {
-    public void validarNombres(java.awt.event.KeyEvent evt){
+    public void validarNombres(java.awt.event.KeyEvent evt){//PAO TIENES QUE MODIFICAR E IMPLENTAR PARA LOS ESPACIOS
         char c = evt.getKeyChar();
         if((c < 'a' || c > 'z') && ( c < 'A' || c > 'Z') && c=='\n')evt.consume();
     }
