@@ -66,7 +66,7 @@ public class BuscarCliente extends JPanel implements ActionListener{
         lB=new JPanel();
 
         Font fuente=new Font("Cambria", 2, 14);
-        etiqueta1=new JLabel("NIT:");
+        etiqueta1=new JLabel("CI/NIT:");
         etiqueta1.setFont(fuente);
      
         botonBuscar=new JButton("Buscar");
