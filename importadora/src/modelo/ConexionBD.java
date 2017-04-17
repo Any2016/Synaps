@@ -1,4 +1,3 @@
-
 package modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +12,7 @@ private Statement sentencia;
 private final String servidor ="localhost";
 private final String BD ="importadora";
 private final String usuario="root";
-private final String clave="";
+private final String clave="root";
 private final String URL="jdbc:mysql://"+servidor+"/"+BD;
 // Metodo constructor, que inicializa los atributos internos del conector de BD
 public ConexionBD(){
@@ -79,7 +78,6 @@ public ResultSet seleccionar(String sql){
 	}
 	return resultado;
 }
-
 /*
 Para cerrar la conexion de forma correcta con la base de datos
 verificanco que exista la conexion
