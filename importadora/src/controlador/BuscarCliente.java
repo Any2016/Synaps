@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import modelo.ValidadorCampos;
+import vista.Utilidades;
 public class BuscarCliente extends JPanel implements ActionListener{
     private JFrame mB;
     private JPanel lB;
@@ -50,13 +51,6 @@ public class BuscarCliente extends JPanel implements ActionListener{
     private JTextField ccCelularMod;   
     private JTextField ccCorreoMod;
     
-    private String nse;
-    private String cse;
-    private String dse;
-    private String tse;
-    private String celse;
-    private String cose;
-
     public BuscarCliente(){
     
     }
@@ -74,20 +68,16 @@ public class BuscarCliente extends JPanel implements ActionListener{
         Font fuente=new Font("Cambria", 2, 14);
         etiqueta1=new JLabel("NIT:");
         etiqueta1.setFont(fuente);
-        
+     
         botonBuscar=new JButton("Buscar");
         botonBuscar.setFont(fuente);
         campoBusqueda=new JTextField(10);
-        
-    
         botonBuscar.addActionListener(new ActionListener(){
             
         public void actionPerformed(ActionEvent e){
              ConexionBD buscar=new ConexionBD();
-             
             if(!campoBusqueda.getText().isEmpty()){
             try{
-                 
                 buscar.conectar();
                 String nombre="";
                 String ci="";
@@ -116,7 +106,7 @@ public class BuscarCliente extends JPanel implements ActionListener{
                 nombreMod=new JLabel("Nombre:");
                 nombreMod.setBounds(120,60,150,20);
                 jpanelMod.add(nombreMod);
-                ciMod=new JLabel("CI:");
+                ciMod=new JLabel("CI/NIT:");
                 ciMod.setBounds(120,90,150,20);
                 jpanelMod.add(ciMod);
                 direccionMod=new JLabel("Dirección:");
@@ -133,7 +123,6 @@ public class BuscarCliente extends JPanel implements ActionListener{
                 jpanelMod.add(correoMod);
                 cancelarMod=new JButton("Cancelar");
                 cancelarMod.setBounds(200,270,100,20);
-                
                 cancelarMod.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent can){
                 jframeMod.dispose();
                 }});
@@ -171,7 +160,6 @@ public class BuscarCliente extends JPanel implements ActionListener{
                 jpanelMod.add(registrarMod);
                 registrarMod.addActionListener(new ActionListener(){public void actionPerformed(ActionEvent ae3){
                 ConexionBD cn=new ConexionBD();
-               // RegistroPersona regMod=new RegistroPersona();
                 ValidadorCampos regMod=new ValidadorCampos();
                 
                 if(!cNombreMod.getText().isEmpty()&&!cCIMod.getText().isEmpty()&&!cDireccionMod.getText().isEmpty()){
