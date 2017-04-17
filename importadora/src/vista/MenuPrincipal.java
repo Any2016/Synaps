@@ -6,9 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 
 public class MenuPrincipal extends JFrame{
     private Utilidades util = new Utilidades();
@@ -41,7 +38,7 @@ public class MenuPrincipal extends JFrame{
         btn_cliente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new frm_cliente().setVisible(true);
+                new frm_cliente(0).setVisible(true);
             }
         });
         this.add(btn_cliente);

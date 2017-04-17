@@ -21,9 +21,13 @@ public class frm_cliente extends JFrame {
     private JButton btn_cancelar;
     private JButton btn_guardar;
     private Utilidades util = new Utilidades();
+    private int id;
     
-    public frm_cliente (){
+    public frm_cliente (int id){//id = 0 --> es para registrar cliente nuevo; cualquier otro numero es para modificar
+        this.id = id;
         initComponents();
+        if (this.id != 0)
+            CargarDatos();
     }
     
     private void initComponents(){
@@ -34,11 +38,15 @@ public class frm_cliente extends JFrame {
         this.setLocationRelativeTo(null);
         this.setBackground(new Color(242,242,242));
         
+        JLabel titulo = new JLabel("Registro de cliente");
+        titulo.setBounds(50, 10, 200, 24);
+        titulo.setFont(new Font("Calibri", 1, 24));
+        this.add(titulo);
         txt = new JTextField[6];
         for (int i = 0; i < txt.length; i++) {
             txt[i] = new JTextField();
             txt[i].setFont(new Font("Calibri", 0, 15));
-            txt[i].setBounds(110, (i + 1)*30, 160, 22);
+            txt[i].setBounds(110, titulo.getY()+(i + 1)*30, 160, 22);
             this.add(txt[i]);
         }
         ValidadorCampos vc = new ValidadorCampos();
@@ -66,7 +74,7 @@ public class frm_cliente extends JFrame {
         for (int i = 0; i < lbl.length; i++) {
             lbl[i] = new JLabel(campos[i]);
             lbl[i].setFont(new Font("Calibri", 0, 15));
-            lbl[i].setBounds(30, (i + 1)*30, 100, 22);
+            lbl[i].setBounds(30, titulo.getY()+(i + 1)*30, 100, 22);
             this.add(lbl[i]);
         }
         btn_cancelar = util.btn("Cancelar", lbl[0].getX() - 10, lbl[lbl.length-1].getY() + 50);
@@ -97,6 +105,13 @@ public class frm_cliente extends JFrame {
                 throw new AssertionError();
         }
     }
+    
+    private void CargarDatos(){
+        String query = "select * from cliente where id_cliente = '" + id + "'";
+        //aqui hacer la consulta y recuperar
+        
+    }
+    
     private void GuardarCliente(){
         for (JTextField t : txt) {
             if (t.getText().isEmpty()) {
@@ -106,6 +121,7 @@ public class frm_cliente extends JFrame {
         }
         ValidadorCampos vc = new ValidadorCampos();
         if (vc.validarCorreo(txt[5].getText())) {
+            
             String query = "insert into cliente values (null,'"+txt[1].getText()+"','"+txt[0].getText()+"','"+ txt[2].getText()+"','"+ txt[3].getText()+"','"+ txt[4].getText()+"','"+ txt[5].getText()+"')";
             
             ConexionBD con = new ConexionBD();
