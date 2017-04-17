@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import modelo.ValidadorCampos;
 import vista.Utilidades;
+import vista.frm_cliente;
 public class BuscarCliente extends JPanel implements ActionListener{
     private JFrame mB;
     private JPanel lB;
@@ -85,6 +86,13 @@ public class BuscarCliente extends JPanel implements ActionListener{
                 String telefono="";
                 String celular="";
                 String correo="";
+                //////////////
+                resultado=buscar.seleccionar("select id_cliente from cliente where ci="+campoBusqueda.getText()+"");
+                resultado.next();
+                frm_cliente fcliente = new frm_cliente(resultado.getInt("id_cliente"));
+                mB.setVisible(false);
+                fcliente.setVisible(true);
+                ///
                 resultado=buscar.seleccionar("select * from cliente where ci="+campoBusqueda.getText()+"");
                 
                 while (resultado.next()){

@@ -27,8 +27,7 @@ public class MenuPrincipal extends JFrame{
         add(titulo,BorderLayout.LINE_START);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
         BuscarCliente bc=new BuscarCliente();
-        JButton modificar=new JButton ();
-        modificar=util.btn("Buscar Cliente", 50, 50);   
+        JButton modificar=util.btn("Buscar Cliente", 50, 50);   
         modificar.addActionListener(bc);
         add(modificar);
         

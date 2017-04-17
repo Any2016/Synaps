@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,7 +25,7 @@ public class frm_cliente extends JFrame {
     private Utilidades util = new Utilidades();
     private int id;
     
-    public frm_cliente (int id){//id = 0 --> es para registrar cliente nuevo; cualquier otro numero es para modificar
+    public frm_cliente (int id) throws SQLException{//id = 0 --> es para registrar cliente nuevo; cualquier otro numero es para modificar
         this.id = id;
         initComponents();
         if (this.id != 0)
@@ -106,10 +108,18 @@ public class frm_cliente extends JFrame {
         }
     }
     
-    private void CargarDatos(){
-        String query = "select * from cliente where id_cliente = '" + id + "'";
-        //aqui hacer la consulta y recuperar
-        
+    private void CargarDatos() throws SQLException{
+        ConexionBD con=new ConexionBD();
+        con.conectar();
+        ResultSet resultado = con.seleccionar("select * from cliente where id_cliente = '" + id + "'");
+        while (resultado.next()) {            
+            txt[0].setText(resultado.getString("nombre"));
+            txt[1].setText(resultado.getString("ci"));
+            txt[2].setText(resultado.getString("direccion"));
+            txt[3].setText(resultado.getString("telefono"));
+            txt[4].setText(resultado.getString("celular"));
+            txt[5].setText(resultado.getString("correo"));
+        }
     }
     
     private void GuardarCliente(){
