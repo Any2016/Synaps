@@ -1,4 +1,3 @@
-
 package modelo;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +12,7 @@ private Statement sentencia;
 private final String servidor ="localhost";
 private final String BD ="importadora";
 private final String usuario="root";
-private final String clave="";
+private final String clave="root";
 private final String URL="jdbc:mysql://"+servidor+"/"+BD;
 // Metodo constructor, que inicializa los atributos internos del conector de BD
 public ConexionBD(){
@@ -61,6 +60,23 @@ try{
 		System.err.println(sqle.getMessage());
 	}
 	return estado;
+}
+/*
+Este metodo me permite ejecutar la sentencia: SELECT
+el parametro sql me indica la consulta select que se le va a pasar al metodo
+*/
+
+public ResultSet seleccionar(String sql){
+	ResultSet resultado=null;
+	try{
+		sentencia = conexion.createStatement();
+		resultado = sentencia.executeQuery(sql);
+		
+	}catch(SQLException sqle){
+		System.err.println("Error: ConectorBD seleccionar(sql)");
+		System.err.println(sqle.getMessage());
+	}
+	return resultado;
 }
 /*
 Para cerrar la conexion de forma correcta con la base de datos

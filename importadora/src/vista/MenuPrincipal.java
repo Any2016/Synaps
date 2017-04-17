@@ -1,4 +1,5 @@
 package vista;
+import controlador.BuscarCliente;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -24,13 +25,14 @@ public class MenuPrincipal extends JFrame{
         titulo=new JLabel("Menu Importadora ");
         titulo.setFont(new java.awt.Font("Times New Roman", 0, 36));
         add(titulo,BorderLayout.LINE_START);
-        
-        
-        JButton modificar=new JButton ("Modificar");
-        modificar.addActionListener(null);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////        
+        BuscarCliente bc=new BuscarCliente();
+        JButton modificar=new JButton ();
+        modificar=util.btn("Buscar Cliente", 50, 50);   
+        modificar.addActionListener(bc);
         add(modificar);
         
-       
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////       
         FlowLayout nuevoorden=new FlowLayout(50,50,30);
         setLayout(nuevoorden);
         
