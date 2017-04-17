@@ -36,7 +36,16 @@ public class MenuPrincipal extends JFrame{
         add(modificar);
         
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////       
-        FlowLayout nuevoorden=new FlowLayout(50,50,30);
+        RegistrarPedido rped=new RegistrarPedido();
+        JButton pedido=new JButton ();
+        pedido=util.btn("Registrar pedido", 50, 50);   
+        pedido.addActionListener(rped);
+        add(pedido);
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+FlowLayout nuevoorden=new FlowLayout(50,50,30);
         setLayout(nuevoorden);
         
         JButton btn_cliente = util.btn("Registro de Cliente", 50, 50);
