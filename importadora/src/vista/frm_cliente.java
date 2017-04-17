@@ -131,13 +131,16 @@ public class frm_cliente extends JFrame {
         }
         ValidadorCampos vc = new ValidadorCampos();
         if (vc.validarCorreo(txt[5].getText())) {
-            
-            String query = "insert into cliente values (null,'"+txt[1].getText()+"','"+txt[0].getText()+"','"+ txt[2].getText()+"','"+ txt[3].getText()+"','"+ txt[4].getText()+"','"+ txt[5].getText()+"')";
+            String query;
+            if (this.id != 0)//viene por aqui cuando es para modificar
+                query = "update cliente set nombre='"+txt[0].getText()+"', ci='"+txt[1].getText()+"', direccion='"+txt[2].getText()+"', telefono='"+txt[3].getText()+"', celular='"+txt[4].getText()+"', correo='"+txt[5].getText()+"' where id_cliente='"+this.id+"'";
+            else
+                query = "insert into cliente values (null,'"+txt[1].getText()+"','"+txt[0].getText()+"','"+ txt[2].getText()+"','"+ txt[3].getText()+"','"+ txt[4].getText()+"','"+ txt[5].getText()+"')";
             
             ConexionBD con = new ConexionBD();
             if (con.conectar())
                 if (con.consulta(query)){
-                    JOptionPane.showMessageDialog(rootPane, "Se registro al cliente con exito!!!");
+                    JOptionPane.showMessageDialog(rootPane, "La operacion se realizo con exito!!!");
                     this.dispose();
                 }
         }
