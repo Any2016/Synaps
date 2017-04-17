@@ -89,8 +89,6 @@ create table CLIENTE
    APELLIDO				varchar(30)					   null,
    DIRECCION            varchar(50)                    null,
    TELEFONO             integer                        null,
-   CELULAR              integer                        null,
-   CELULAR 				integer						   null,
    CORREO               varchar(50)                    null,
    constraint PK_CLIENTE primary key (CI)
 );
